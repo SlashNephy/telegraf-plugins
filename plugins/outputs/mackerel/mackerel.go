@@ -89,15 +89,16 @@ func (p *Plugin) buildMetricName(metric telegraf.Metric, field *telegraf.Field) 
 		prefix = "telegraf"
 	}
 
+	keys := []string{"custom", prefix, metric.Name()}
+
 	var tagKeys []string
 	for _, tag := range metric.TagList() {
 		tagKeys = append(tagKeys, tag.Key+"-"+tag.Value)
 	}
-
-	keys := []string{prefix, metric.Name()}
 	if len(tagKeys) > 0 {
 		keys = append(keys, strings.Join(tagKeys, "_"))
 	}
+
 	keys = append(keys, field.Key)
 
 	name := strings.Join(keys, ".")
