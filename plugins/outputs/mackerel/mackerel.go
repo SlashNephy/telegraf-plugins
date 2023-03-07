@@ -3,6 +3,7 @@ package mackerel
 import (
 	_ "embed"
 	"regexp"
+	"strings"
 
 	"github.com/caarlos0/env/v7"
 	"github.com/influxdata/telegraf"
@@ -10,8 +11,11 @@ import (
 	"github.com/mackerelio/mackerel-client-go"
 )
 
-//go:embed sample.conf
-var sampleConfig string
+var (
+	//go:embed sample.conf
+	sampleConfig                  string
+	notAcceptableMetricNamePatten = regexp.MustCompile("[^a-zA-Z0-9._-]+")
+)
 
 type Plugin struct {
 	APIKey       string          `toml:"api_key" env:"MACKEREL_API_KEY"`
@@ -45,10 +49,6 @@ func (p *Plugin) Connect() error {
 		p.Log.Warn("Both host ID and service name configured, Mackerel output plugin always sends metrics as Host Metrics")
 	}
 
-	if p.MetricPrefix == "" {
-		p.MetricPrefix = "telegraf"
-	}
-
 	return nil
 }
 
@@ -65,7 +65,7 @@ func (p *Plugin) Write(metrics []telegraf.Metric) error {
 	for _, metric := range metrics {
 		for _, field := range metric.FieldList() {
 			payloads = append(payloads, &mackerel.MetricValue{
-				Name:  ensureMetricName(p.MetricPrefix + "." + metric.Name() + "." + field.Key),
+				Name:  p.buildMetricName(metric, field),
 				Time:  metric.Time().Unix(),
 				Value: field.Value,
 			})
@@ -83,10 +83,25 @@ func (p *Plugin) Write(metrics []telegraf.Metric) error {
 	return nil
 }
 
-var notAcceptableMetricNamePatten = regexp.MustCompile("[^a-zA-Z0-9._-]+")
+func (p *Plugin) buildMetricName(metric telegraf.Metric, field *telegraf.Field) string {
+	prefix := p.MetricPrefix
+	if prefix == "" {
+		prefix = "telegraf"
+	}
 
-func ensureMetricName(value string) string {
-	return notAcceptableMetricNamePatten.ReplaceAllString(value, "_")
+	var tagKeys []string
+	for _, tag := range metric.TagList() {
+		tagKeys = append(tagKeys, tag.Key+"-"+tag.Value)
+	}
+
+	keys := []string{prefix, metric.Name()}
+	if len(tagKeys) > 0 {
+		keys = append(keys, strings.Join(tagKeys, "_"))
+	}
+	keys = append(keys, field.Key)
+
+	name := strings.Join(keys, ".")
+	return notAcceptableMetricNamePatten.ReplaceAllString(name, "_")
 }
 
 func init() {
