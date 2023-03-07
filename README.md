@@ -9,6 +9,7 @@ Telegraf output plugin for Mackerel.io
 ```toml
 [[outputs.exec]]
   command = ["/path/to/telegraf-output-mackerel", "--config", "/path/to/telegraf-output-mackerel.conf"]
+  timeout = "10s"
 ```
 
 2. Create a config file that `telegraf-output-mackerel` will refer to. This is confusing, but must be in a separate file from `telegraf.conf`.
