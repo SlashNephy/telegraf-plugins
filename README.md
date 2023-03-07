@@ -19,11 +19,13 @@ Here we create a file named `/path/to/telegraf-output-mackerel.conf`. A sample o
 [[outputs.mackerel]]
   # Required
   # API keys can be issued on the Mackerel dashboard.
+  # Alternatively, you can set it via the $MACKEREL_API_KEY environment variable.
   api_key = ""
 
   # Either of the following is required
   # Specify host_id if you want the metrics to be associated with a host,
   # or service_name if you want them to be associated with a service.
+  # Alternatively, you can set it via the environment variable $MACKEREL_HOST_ID or $MACKEREL_SERVICE_NAME.
   host_id = ""
   service_name = ""
 ```
