@@ -14,10 +14,11 @@ import (
 var sampleConfig string
 
 type Plugin struct {
-	APIKey      string          `toml:"api_key" env:"MACKEREL_API_KEY"`
-	HostID      string          `toml:"host_id" env:"MACKEREL_HOST_ID"`
-	ServiceName string          `toml:"service_name" env:"MACKEREL_SERVICE_NAME"`
-	Log         telegraf.Logger `toml:"-"`
+	APIKey       string          `toml:"api_key" env:"MACKEREL_API_KEY"`
+	HostID       string          `toml:"host_id" env:"MACKEREL_HOST_ID"`
+	ServiceName  string          `toml:"service_name" env:"MACKEREL_SERVICE_NAME"`
+	MetricPrefix string          `toml:"metric_prefix" env:"MACKEREL_METRIC_PREFIX"`
+	Log          telegraf.Logger `toml:"-"`
 
 	client *mackerel.Client
 }
@@ -44,6 +45,10 @@ func (p *Plugin) Connect() error {
 		p.Log.Warn("Both host ID and service name configured, Mackerel output plugin always sends metrics as Host Metrics")
 	}
 
+	if p.MetricPrefix == "" {
+		p.MetricPrefix = "telegraf"
+	}
+
 	return nil
 }
 
@@ -60,7 +65,7 @@ func (p *Plugin) Write(metrics []telegraf.Metric) error {
 	for _, metric := range metrics {
 		for _, field := range metric.FieldList() {
 			payloads = append(payloads, &mackerel.MetricValue{
-				Name:  ensureMetricName(metric.Name() + "." + field.Key),
+				Name:  ensureMetricName(p.MetricPrefix + "." + metric.Name() + "." + field.Key),
 				Time:  metric.Time().Unix(),
 				Value: field.Value,
 			})

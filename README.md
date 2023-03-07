@@ -28,6 +28,12 @@ Here we create a file named `/path/to/telegraf-output-mackerel.conf`. A sample o
   # Alternatively, you can set it via the environment variable $MACKEREL_HOST_ID or $MACKEREL_SERVICE_NAME.
   host_id = ""
   service_name = ""
+
+  # Optional
+  # Specify a prefix for the metric name.
+  # A unique prefix that does not conflict with other metric names is recommended.
+  # Alternatively, you can set it via the $MACKEREL_METRIC_PREFIX environment variable.
+  metric_prefix = "telegram"
 ```
 
 3. Restart telegraf instance.
