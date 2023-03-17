@@ -3,7 +3,7 @@ module github.com/SlashNephy/telegraf-output-mackerel
 go 1.20
 
 require (
-	github.com/caarlos0/env/v7 v7.0.0
+	github.com/caarlos0/env/v7 v7.1.0
 	github.com/influxdata/telegraf v1.25.3
 	github.com/mackerelio/mackerel-client-go v0.24.0
 )
