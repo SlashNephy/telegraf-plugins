@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/caarlos0/env/v7 v7.1.0
 	github.com/influxdata/telegraf v1.26.2
-	github.com/mackerelio/mackerel-client-go v0.25.0
+	github.com/mackerelio/mackerel-client-go v0.26.0
 )
 
 require (
