@@ -18,7 +18,7 @@ require (
 	github.com/awnumar/memcall v0.1.2 // indirect
 	github.com/awnumar/memguard v0.22.3 // indirect
 	github.com/benbjohnson/clock v1.3.3 // indirect
-	github.com/compose-spec/compose-go v1.16.0 // indirect
+	github.com/compose-spec/compose-go v1.20.2 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
