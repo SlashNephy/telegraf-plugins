@@ -22,7 +22,7 @@ require (
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/golang-jwt/jwt/v5 v5.0.0 // indirect
+	github.com/golang-jwt/jwt/v5 v5.2.0 // indirect
 	github.com/google/cel-go v0.14.1-0.20230424164844-d39523c445fc // indirect
 	github.com/gosnmp/gosnmp v1.35.1-0.20230602062452-f30602b8dad6 // indirect
 	github.com/influxdata/toml v0.0.0-20190415235208-270119a8ce65 // indirect
