@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.1
 
 require (
-	github.com/caarlos0/env/v7 v7.1.0
+	github.com/caarlos0/env/v8 v8.0.0
 	github.com/influxdata/telegraf v1.28.2
 	github.com/mackerelio/mackerel-client-go v0.26.0
 )
