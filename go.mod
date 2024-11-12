@@ -2,7 +2,7 @@ module github.com/SlashNephy/telegraf-output-mackerel
 
 go 1.21
 
-toolchain go1.21.1
+toolchain go1.23.3
 
 require (
 	github.com/caarlos0/env/v7 v7.1.0
