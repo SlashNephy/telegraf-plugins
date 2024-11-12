@@ -1,4 +1,4 @@
-module github.com/SlashNephy/telegraf-output-mackerel
+module github.com/SlashNephy/telegraf-plugins
 
 go 1.23.0
 
@@ -26,13 +26,16 @@ require (
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/google/cel-go v0.22.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/gosnmp/gosnmp v1.38.0 // indirect
 	github.com/influxdata/toml v0.0.0-20190415235208-270119a8ce65 // indirect
+	github.com/jessevdk/go-flags v1.6.1 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/klauspost/pgzip v1.2.6 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
+	github.com/nasa9084/go-switchbot/v3 v3.2.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/sleepinggenius2/gosmi v0.4.4 // indirect
@@ -45,6 +48,7 @@ require (
 	go.step.sm/crypto v0.54.0 // indirect
 	golang.org/x/crypto v0.29.0 // indirect
 	golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f // indirect
+	golang.org/x/sync v0.9.0 // indirect
 	golang.org/x/sys v0.27.0 // indirect
 	golang.org/x/text v0.20.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20241104194629-dd2ea8efbc28 // indirect

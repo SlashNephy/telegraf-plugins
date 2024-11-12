@@ -14,7 +14,7 @@ Telegraf output plugin for Mackerel.io
 
 2. Create a config file that `telegraf-output-mackerel` will refer to. This is confusing, but must be in a separate file from `telegraf.conf`.
 
-Here we create a file named `/path/to/telegraf-output-mackerel.conf`. A sample of this file can be found [here](https://github.com/SlashNephy/telegraf-output-mackerel/blob/master/plugins/outputs/mackerel/sample.conf).
+Here we create a file named `/path/to/telegraf-output-mackerel.conf`. A sample of this file can be found [here](https://github.com/SlashNephy/telegraf-plugins/blob/master/plugins/outputs/mackerel/sample.conf).
 
 ```toml
 [[outputs.mackerel]]

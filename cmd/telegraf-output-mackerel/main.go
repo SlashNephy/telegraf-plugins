@@ -1,37 +1,31 @@
 package main
 
 import (
-	"flag"
 	"log"
-	"time"
-
-	_ "github.com/SlashNephy/telegraf-output-mackerel/plugins/outputs/mackerel"
+	"os"
 
 	"github.com/influxdata/telegraf/plugins/common/shim"
+	"github.com/jessevdk/go-flags"
 )
 
-var (
-	configFile           = flag.String("config", "", "path to the config file for this plugin")
-	pollInterval         = flag.Duration("poll_interval", 1*time.Second, "how often to send metrics")
-	pollIntervalDisabled = flag.Bool(
-		"poll_interval_disabled",
-		false,
-		"set to true to disable polling. You want to use this when you are sending metrics on your own schedule",
-	)
-)
+var options struct {
+	ConfigPath *string `long:"config" description:"path to the config file for this plugin"`
+}
 
-func main() {
-	flag.Parse()
+func Main() {
+	log.SetOutput(os.Stderr)
 
-	if *pollIntervalDisabled {
-		*pollInterval = shim.PollIntervalDisabled
+	parser := flags.NewParser(&options, flags.Default)
+	if _, err := parser.Parse(); err != nil {
+		log.Fatalf("failed to parse flags: %s", err)
 	}
 
 	shimLayer := shim.New()
-	if err := shimLayer.LoadConfig(configFile); err != nil {
-		log.Fatalln(err)
+	if err := shimLayer.LoadConfig(options.ConfigPath); err != nil {
+		log.Fatalf("failed to load config: %s", err)
 	}
-	if err := shimLayer.Run(*pollInterval); err != nil {
-		log.Fatalln(err)
+
+	if err := shimLayer.RunOutput(); err != nil {
+		log.Fatalf("failed to run: %s", err)
 	}
 }
