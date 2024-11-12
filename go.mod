@@ -6,7 +6,7 @@ toolchain go1.23.3
 
 require (
 	github.com/caarlos0/env/v7 v7.1.0
-	github.com/influxdata/telegraf v1.28.5
+	github.com/influxdata/telegraf v1.32.2
 	github.com/mackerelio/mackerel-client-go v0.26.0
 )
 
