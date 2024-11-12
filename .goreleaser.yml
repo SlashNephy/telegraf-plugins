@@ -1,31 +1,20 @@
-before:
-  hooks:
-    - go mod download
+version: 2
 
 builds:
-  - main: ./cmd
-    binary: telegraf-output-mackerel
-    flags:
-      - -trimpath
-    ldflags:
-      - -s -w
-    env:
-      - CGO_ENABLED=0
+  - main: ./cmd/telegraf-output-mackerel
     goos:
       - linux
-      - freebsd
-      - darwin
       - windows
+      - darwin
     goarch:
-      - 386
       - amd64
       - arm64
 
-checksum:
-  name_template: 'checksums.txt'
-
 archives:
-  - format: binary
-    name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
-    replacements:
-      386: i386
+  - format: zip
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+release:
+  github:
+    owner: SlashNephy
+    name: telegraf-plugins
