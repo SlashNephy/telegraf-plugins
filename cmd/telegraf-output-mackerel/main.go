@@ -12,7 +12,7 @@ var options struct {
 	ConfigPath *string `long:"config" description:"path to the config file for this plugin"`
 }
 
-func Main() {
+func main() {
 	log.SetOutput(os.Stderr)
 
 	parser := flags.NewParser(&options, flags.Default)

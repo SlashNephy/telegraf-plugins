@@ -15,7 +15,7 @@ var options struct {
 	PollInterval time.Duration `long:"poll-interval" description:"how often to send metrics" default:"0s"`
 }
 
-func Main() {
+func main() {
 	log.SetOutput(os.Stderr)
 
 	parser := flags.NewParser(&options, flags.Default)

@@ -1,7 +1,9 @@
 version: 2
 
 builds:
-  - main: ./cmd/telegraf-input-switchbot
+  - id: telegraf-input-switchbot
+    main: ./cmd/telegraf-input-switchbot
+    binary: telegraf-input-switchbot
     goos:
       - linux
       - windows
@@ -9,7 +11,9 @@ builds:
     goarch:
       - amd64
       - arm64
-  - main: ./cmd/telegraf-output-mackerel
+  - id: telegraf-output-mackerel
+    main: ./cmd/telegraf-output-mackerel
+    binary: telegraf-output-mackerel
     goos:
       - linux
       - windows
