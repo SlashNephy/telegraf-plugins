@@ -1,6 +1,16 @@
 version: 2
 
 builds:
+  - id: telegraf-input-epgstation
+    main: ./cmd/telegraf-input-epgstation
+    binary: telegraf-input-epgstation
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
   - id: telegraf-input-switchbot
     main: ./cmd/telegraf-input-switchbot
     binary: telegraf-input-switchbot
