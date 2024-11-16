@@ -11,6 +11,16 @@ builds:
     goarch:
       - amd64
       - arm64
+  - id: telegraf-input-mirakurun
+    main: ./cmd/telegraf-input-mirakurun
+    binary: telegraf-input-mirakurun
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
   - id: telegraf-input-switchbot
     main: ./cmd/telegraf-input-switchbot
     binary: telegraf-input-switchbot
