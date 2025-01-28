@@ -6,7 +6,7 @@ toolchain go1.23.5
 
 require (
 	github.com/caarlos0/env/v11 v11.3.1
-	github.com/goccy/go-json v0.10.4
+	github.com/goccy/go-json v0.10.5
 	github.com/influxdata/telegraf v1.33.1
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
