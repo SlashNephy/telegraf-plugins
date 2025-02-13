@@ -11,7 +11,7 @@ require (
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
 	github.com/mackerelio/mackerel-client-go v0.35.0
-	github.com/nasa9084/go-switchbot/v3 v3.2.0
+	github.com/nasa9084/go-switchbot/v4 v4.0.1
 	github.com/samber/lo v1.49.1
 	golang.org/x/sync v0.11.0
 )
