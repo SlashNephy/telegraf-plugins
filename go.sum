@@ -664,8 +664,8 @@ github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 h1:C3w9PqII01/Oq
 github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822/go.mod h1:+n7T8mK8HuQTcFwEeznm/DIxMOiR9yIdICNftLE1DvQ=
 github.com/naoina/go-stringutil v0.1.0 h1:rCUeRUHjBjGTSHl0VC00jUPLz8/F9dDzYI70Hzifhks=
 github.com/naoina/go-stringutil v0.1.0/go.mod h1:XJ2SJL9jCtBh+P9q5btrd/Ylo8XwT/h1USek5+NqSA0=
-github.com/nasa9084/go-switchbot/v3 v3.2.0 h1:vMkXEFkpIPRb0EfIULrzQpZjlkekKySK6Fc1jYRcVfw=
-github.com/nasa9084/go-switchbot/v3 v3.2.0/go.mod h1:hrZUTHehZjib+vOCk9Rik5xvKQJ0KZKDOmyiIzonlI4=
+github.com/nasa9084/go-switchbot/v4 v4.0.1 h1:WG7zBvUTQz5bO9SH7fD2kQrR0YSyovmD8LyVn4KBpSs=
+github.com/nasa9084/go-switchbot/v4 v4.0.1/go.mod h1:O48mo/L+Bjk0DI9eJ1hx5+W6DP2kFPsvYCgumfvHKbg=
 github.com/nats-io/jwt/v2 v2.7.3 h1:6bNPK+FXgBeAqdj4cYQ0F8ViHRbi7woQLq4W29nUAzE=
 github.com/nats-io/jwt/v2 v2.7.3/go.mod h1:GvkcbHhKquj3pkioy5put1wvPxs78UlZ7D/pY+BgZk4=
 github.com/nats-io/nats-server/v2 v2.10.25 h1:J0GWLDDXo5HId7ti/lTmBfs+lzhmu8RPkoKl0eSCqwc=
