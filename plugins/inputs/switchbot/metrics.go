@@ -1,6 +1,6 @@
 package switchbot
 
-import "github.com/nasa9084/go-switchbot/v3"
+import "github.com/nasa9084/go-switchbot/v5"
 
 type MetricSource struct {
 	Key   string

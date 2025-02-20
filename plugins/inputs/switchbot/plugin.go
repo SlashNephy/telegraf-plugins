@@ -9,7 +9,7 @@ import (
 	"github.com/caarlos0/env/v11"
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/plugins/inputs"
-	"github.com/nasa9084/go-switchbot/v3"
+	"github.com/nasa9084/go-switchbot/v5"
 	"golang.org/x/sync/errgroup"
 )
 
