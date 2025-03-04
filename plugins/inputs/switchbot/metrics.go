@@ -1,6 +1,6 @@
 package switchbot
 
-import "github.com/nasa9084/go-switchbot/v3"
+import "github.com/nasa9084/go-switchbot/v5"
 
 type MetricSource struct {
 	Key   string
@@ -163,7 +163,8 @@ var SupportedMetrics = map[switchbot.PhysicalDeviceType][]*MetricSource{
 	"Curtain3":                         {IsCalibrated, IsGrouped, IsMoving, Battery, SlidePosition},
 	switchbot.Meter:                    {Temperature, Battery, Humidity},
 	switchbot.MeterPlus:                {Battery, Temperature, Humidity},
-	"MeterPro(CO2)":                    {Battery, Temperature, Humidity, CO2},
+	switchbot.MeterPro:                 {Battery, Temperature, Humidity},
+	switchbot.MeterProCO2:              {Battery, Temperature, Humidity, CO2},
 	switchbot.WoIOSensor:               {Battery, Temperature, Humidity},
 	switchbot.Lock:                     {Battery /* lockState, doorState */, IsCalibrated},
 	"Smart Lock Pro":                   {Battery /* lockState, doorState */, IsCalibrated},
