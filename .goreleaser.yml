@@ -31,6 +31,16 @@ builds:
     goarch:
       - amd64
       - arm64
+  - id: telegraf-input-sbi-securities
+    main: ./cmd/telegraf-input-sbi-securities
+    binary: telegraf-input-sbi-securities
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
   - id: telegraf-output-mackerel
     main: ./cmd/telegraf-output-mackerel
     binary: telegraf-output-mackerel
