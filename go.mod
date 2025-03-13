@@ -6,7 +6,7 @@ require (
 	github.com/PuerkitoBio/goquery v1.10.2
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/goccy/go-json v0.10.5
-	github.com/influxdata/telegraf v1.33.3
+	github.com/influxdata/telegraf v1.34.0
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
 	github.com/mackerelio/mackerel-client-go v0.35.0
@@ -35,12 +35,15 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gosnmp/gosnmp v1.39.0 // indirect
 	github.com/influxdata/toml v0.0.0-20190415235208-270119a8ce65 // indirect
+	github.com/jedib0t/go-pretty/v6 v6.6.5 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/klauspost/pgzip v1.2.6 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
+	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/sleepinggenius2/gosmi v0.4.4 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
