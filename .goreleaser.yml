@@ -41,6 +41,16 @@ builds:
     goarch:
       - amd64
       - arm64
+  - id: telegraf-input-bybit
+    main: ./cmd/telegraf-input-bybit
+    binary: telegraf-input-bybit
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
   - id: telegraf-output-mackerel
     main: ./cmd/telegraf-output-mackerel
     binary: telegraf-output-mackerel
