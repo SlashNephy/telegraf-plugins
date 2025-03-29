@@ -599,8 +599,8 @@ github.com/logzio/azure-monitor-metrics-receiver v1.1.0 h1:L2LU/jWTOFibZeSKUeEDB
 github.com/logzio/azure-monitor-metrics-receiver v1.1.0/go.mod h1:6J/ZJtFGAuv3XvLWOWTefbi1BBHvnawNjUTGcx2qUG4=
 github.com/lufia/plan9stats v0.0.0-20240226150601-1dcf7310316a h1:3Bm7EwfUQUvhNeKIkUct/gl9eod1TcXuj8stxvi/GoI=
 github.com/lufia/plan9stats v0.0.0-20240226150601-1dcf7310316a/go.mod h1:ilwx/Dta8jXAgpFYFvSWEMwxmbWXyiUHkd5FwyKhb5k=
-github.com/mackerelio/mackerel-client-go v0.35.0 h1:M5ClQJKG+cdahdYGQainbLRdHgVdXjc9GqEaO/GP0xM=
-github.com/mackerelio/mackerel-client-go v0.35.0/go.mod h1:EJom2FXbK0Akv61dVsRiH9oKggk4IWlgb6hrQtGK1Z4=
+github.com/mackerelio/mackerel-client-go v0.36.0 h1:/dLedCmGWpo1cIKi5BB8QYtbA8w/R8McieleQ+Vme8w=
+github.com/mackerelio/mackerel-client-go v0.36.0/go.mod h1:EJom2FXbK0Akv61dVsRiH9oKggk4IWlgb6hrQtGK1Z4=
 github.com/magiconair/properties v1.8.9 h1:nWcCbLq1N2v/cpNsy5WvQ37Fb+YElfq20WJ/a8RkpQM=
 github.com/magiconair/properties v1.8.9/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=
 github.com/mailru/easyjson v0.9.0 h1:PrnmzHw7262yW8sTBwxi1PdJA3Iw/EKBa8psRf7d9a4=
