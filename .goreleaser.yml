@@ -51,6 +51,16 @@ builds:
     goarch:
       - amd64
       - arm64
+  - id: telegraf-input-rakuten-securities
+    main: ./cmd/telegraf-input-rakuten-securities
+    binary: telegraf-input-rakuten-securities
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
   - id: telegraf-output-mackerel
     main: ./cmd/telegraf-output-mackerel
     binary: telegraf-output-mackerel
