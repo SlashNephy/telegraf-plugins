@@ -3,7 +3,7 @@ module github.com/SlashNephy/telegraf-plugins
 go 1.24.0
 
 require (
-	github.com/PuerkitoBio/goquery v1.10.2
+	github.com/PuerkitoBio/goquery v1.10.3
 	github.com/bybit-exchange/bybit.go.api v0.0.0-20250303085828-836a2657b0dc
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/goccy/go-json v0.10.5
@@ -60,10 +60,10 @@ require (
 	github.com/tidwall/tinylru v1.2.1 // indirect
 	github.com/tidwall/wal v1.1.8 // indirect
 	go.step.sm/crypto v0.59.1 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
+	golang.org/x/crypto v0.37.0 // indirect
 	golang.org/x/exp v0.0.0-20250228200357-dead58393ab7 // indirect
-	golang.org/x/net v0.36.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/net v0.39.0 // indirect
+	golang.org/x/sys v0.32.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250303144028-a0af3efb3deb // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250303144028-a0af3efb3deb // indirect
 	google.golang.org/protobuf v1.36.5 // indirect
