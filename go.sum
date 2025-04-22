@@ -247,8 +247,8 @@ github.com/brutella/dnssd v1.2.14 h1:qLpTnRTm5peo2jA30hqMIbCuWn8x3sFg3e9o9ODOobw
 github.com/brutella/dnssd v1.2.14/go.mod h1:tG4GE8orv6+irE5rdsNgb6MJSxm6cyMUKdC5jmD22gk=
 github.com/bufbuild/protocompile v0.14.1 h1:iA73zAf/fyljNjQKwYzUHD6AD4R8KMasmwa/FBatYVw=
 github.com/bufbuild/protocompile v0.14.1/go.mod h1:ppVdAIhbr2H8asPk6k4pY7t9zB1OU5DoEw9xY/FUi1c=
-github.com/bybit-exchange/bybit.go.api v0.0.0-20250303085828-836a2657b0dc h1:nfM/mnoR2lWb+gS2spjRDH7aMTe7WXFppPyXAkOQ6z0=
-github.com/bybit-exchange/bybit.go.api v0.0.0-20250303085828-836a2657b0dc/go.mod h1:P22TFRynmYRrquJCPalKxZgIIIc9+PkC4kQPeejitsI=
+github.com/bybit-exchange/bybit.go.api v0.0.0-20250421211709-d5b2b36fdf4b h1:OAOttotdZoVMMgpPR8yC5HhnWIEfJkWFJvB5jpWUup0=
+github.com/bybit-exchange/bybit.go.api v0.0.0-20250421211709-d5b2b36fdf4b/go.mod h1:P22TFRynmYRrquJCPalKxZgIIIc9+PkC4kQPeejitsI=
 github.com/caarlos0/env/v11 v11.3.1 h1:cArPWC15hWmEt+gWk7YBi7lEXTXCvpaSdCiZE2X5mCA=
 github.com/caarlos0/env/v11 v11.3.1/go.mod h1:qupehSf/Y0TUTsxKywqRt/vJjN5nz6vauiYEUUr8P4U=
 github.com/caio/go-tdigest v3.1.0+incompatible h1:uoVMJ3Q5lXmVLCCqaMGHLBWnbGoN6Lpu7OAUPR60cds=
