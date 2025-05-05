@@ -13,7 +13,7 @@ require (
 	github.com/mackerelio/mackerel-client-go v0.37.0
 	github.com/nasa9084/go-switchbot/v5 v5.1.0
 	github.com/samber/lo v1.50.0
-	golang.org/x/sync v0.13.0
+	golang.org/x/sync v0.14.0
 	golang.org/x/text v0.24.0
 )
 
