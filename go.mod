@@ -14,7 +14,7 @@ require (
 	github.com/nasa9084/go-switchbot/v5 v5.1.0
 	github.com/samber/lo v1.50.0
 	golang.org/x/sync v0.14.0
-	golang.org/x/text v0.24.0
+	golang.org/x/text v0.25.0
 )
 
 require (
