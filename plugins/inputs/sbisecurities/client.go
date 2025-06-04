@@ -46,14 +46,14 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 			return err
 		}
 
-		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"`)
+		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="137", "Not:A-Brand";v="24", "Microsoft Edge";v="137"`)
 		request.Header.Set("Sec-Ch-Ua-Mobile", "?0")
 		request.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
 		request.Header.Set("Sec-Fetch-Dest", "document")
 		request.Header.Set("Sec-Fetch-Mode", "navigate")
 		request.Header.Set("Sec-Fetch-Site", "same-origin")
 		request.Header.Set("Sec-Fetch-User", "?1")
-		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0")
+		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
 
 		response, err := c.httpClient.Do(request)
 		if err != nil {
@@ -70,7 +70,7 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 	{
 		formData := url.Values{
 			"JS_FLG":          []string{"1"},
-			"BW_FLG":          []string{"chrome,134"},
+			"BW_FLG":          []string{"chrome,137"},
 			"_ControlID":      []string{"WPLETlgR001Control"},
 			"_DataStoreID":    []string{"DSWPLETlgR001Control"},
 			"_PageID":         []string{"WPLETlgR001Rlgn20"},
@@ -92,14 +92,14 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 		request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 		request.Header.Set("Origin", "https://site0.sbisec.co.jp")
 		request.Header.Set("Referer", "https://site0.sbisec.co.jp/")
-		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"`)
+		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="137", "Not:A-Brand";v="24", "Microsoft Edge";v="137"`)
 		request.Header.Set("Sec-Ch-Ua-Mobile", "?0")
 		request.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
 		request.Header.Set("Sec-Fetch-Dest", "document")
 		request.Header.Set("Sec-Fetch-Mode", "navigate")
 		request.Header.Set("Sec-Fetch-Site", "same-origin")
 		request.Header.Set("Sec-Fetch-User", "?1")
-		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0")
+		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
 
 		response, err := c.httpClient.Do(request)
 		if err != nil {
@@ -119,14 +119,14 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 			return err
 		}
 
-		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"`)
+		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="137", "Not:A-Brand";v="24", "Microsoft Edge";v="137"`)
 		request.Header.Set("Sec-Ch-Ua-Mobile", "?0")
 		request.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
 		request.Header.Set("Sec-Fetch-Dest", "document")
 		request.Header.Set("Sec-Fetch-Mode", "navigate")
 		request.Header.Set("Sec-Fetch-Site", "none")
 		request.Header.Set("Sec-Fetch-User", "?1")
-		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0")
+		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
 
 		response, err := c.httpClient.Do(request)
 		if err != nil {
@@ -159,13 +159,13 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 
 		request.Header.Set("Accept", "application/json; charset=utf-8")
 		request.Header.Set("Referer", "https://member.c.sbisec.co.jp/fund/top")
-		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"`)
+		request.Header.Set("Sec-Ch-Ua", `"Chromium";v="137", "Not:A-Brand";v="24", "Microsoft Edge";v="137"`)
 		request.Header.Set("Sec-Ch-Ua-Mobile", "?0")
 		request.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
 		request.Header.Set("Sec-Fetch-Dest", "empty")
 		request.Header.Set("Sec-Fetch-Mode", "cors")
 		request.Header.Set("Sec-Fetch-Site", "same-origin")
-		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0")
+		request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
 
 		response, err := c.httpClient.Do(request)
 		if err != nil {
@@ -344,13 +344,13 @@ func (c *SBISecuritiesClient) GetFundAssets(ctx context.Context) (*FundAssets, e
 	request.Header.Set("Accept-Language", "ja,en;q=0.9")
 	request.Header.Set("Dnt", "1")
 	request.Header.Set("Referer", "https://member.c.sbisec.co.jp/fund/account/assets")
-	request.Header.Set("Sec-Ch-Ua", `"Chromium";v="134", "Not:A-Brand";v="24", "Microsoft Edge";v="134"`)
+	request.Header.Set("Sec-Ch-Ua", `"Chromium";v="137", "Not:A-Brand";v="24", "Microsoft Edge";v="137"`)
 	request.Header.Set("Sec-Ch-Ua-Mobile", "?0")
 	request.Header.Set("Sec-Ch-Ua-Platform", `"Windows"`)
 	request.Header.Set("Sec-Fetch-Dest", "empty")
 	request.Header.Set("Sec-Fetch-Mode", "cors")
 	request.Header.Set("Sec-Fetch-Site", "same-origin")
-	request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0")
+	request.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
 	request.Header.Set("x-csrf-token", c.csrfToken)
 
 	response, err := c.httpClient.Do(request)
