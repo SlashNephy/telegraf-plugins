@@ -38,7 +38,37 @@ type AccountInfo struct {
 	Status string `json:"status"`
 }
 
-func (c *SBISecuritiesClient) Login(ctx context.Context, username, password string) error {
+func (c *SBISecuritiesClient) Login(ctx context.Context, username, password, deviceCookie string) error {
+	// Set the device cookie
+	{
+		cookies, err := http.ParseCookie(deviceCookie)
+		if err != nil {
+			return fmt.Errorf("failed to parse device cookie: %w", err)
+		}
+		if len(cookies) == 0 {
+			return errors.New("device cookie is empty")
+		}
+
+		u, err := url.Parse("https://site1.sbisec.co.jp/ETGate/")
+		if err != nil {
+			return err
+		}
+
+		for _, cookie := range cookies {
+			if cookie.Domain == "" {
+				cookie.Domain = ".sbisec.co.jp"
+			}
+			if cookie.Path == "" {
+				cookie.Path = "/"
+			}
+			if !cookie.HttpOnly {
+				cookie.HttpOnly = true
+			}
+		}
+
+		c.httpClient.Jar.SetCookies(u, cookies)
+	}
+
 	// GET https://site1.sbisec.co.jp/ETGate/
 	{
 		request, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://site1.sbisec.co.jp/ETGate/", nil)
@@ -109,6 +139,15 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password stri
 
 		if response.StatusCode != http.StatusOK {
 			return fmt.Errorf("unexpected response: %s", response.Status)
+		}
+
+		document, err := goquery.NewDocumentFromReader(response.Body)
+		if err != nil {
+			return err
+		}
+
+		if document.Find(`input[name="device_code"]`).Length() > 0 {
+			return errors.New("login failed: device code requested")
 		}
 	}
 

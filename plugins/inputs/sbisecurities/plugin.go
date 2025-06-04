@@ -18,8 +18,9 @@ var sampleConfig string
 type Plugin struct {
 	client *SBISecuritiesClient
 
-	Username string `toml:"-" env:"SBI_SECURITIES_USERNAME"`
-	Password string `toml:"-" env:"SBI_SECURITIES_PASSWORD"`
+	Username     string `toml:"-" env:"SBI_SECURITIES_USERNAME"`
+	Password     string `toml:"-" env:"SBI_SECURITIES_PASSWORD"`
+	DeviceCookie string `toml:"-" env:"SBI_SECURITIES_DEVICE_COOKIE"`
 }
 
 func init() {
@@ -34,8 +35,8 @@ func (p *Plugin) Init() error {
 		return fmt.Errorf("failed to parse env: %w", err)
 	}
 
-	if p.Username == "" || p.Password == "" {
-		return errors.New("username and password are required")
+	if p.Username == "" || p.Password == "" || p.DeviceCookie == "" {
+		return errors.New("missing required environment variables")
 	}
 
 	p.client, err = NewSBISecuritiesClient()
@@ -64,7 +65,7 @@ func (p *Plugin) gather(ctx context.Context, accumulator telegraf.Accumulator, l
 	assets, err := p.client.GetFundAssets(ctx)
 	if err != nil {
 		if errors.Is(err, ErrUnauthorized) {
-			if err := p.client.Login(ctx, p.Username, p.Password); err != nil {
+			if err := p.client.Login(ctx, p.Username, p.Password, p.DeviceCookie); err != nil {
 				return err
 			}
 			return p.gather(ctx, accumulator, loop+1)
