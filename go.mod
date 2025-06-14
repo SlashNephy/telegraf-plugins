@@ -12,7 +12,7 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/mackerelio/mackerel-client-go v0.37.2
 	github.com/nasa9084/go-switchbot/v5 v5.1.0
-	github.com/samber/lo v1.50.0
+	github.com/samber/lo v1.51.0
 	golang.org/x/sync v0.15.0
 	golang.org/x/text v0.26.0
 )
