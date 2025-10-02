@@ -21,6 +21,7 @@ type Plugin struct {
 	Username     string `toml:"-" env:"SBI_SECURITIES_USERNAME"`
 	Password     string `toml:"-" env:"SBI_SECURITIES_PASSWORD"`
 	DeviceCookie string `toml:"-" env:"SBI_SECURITIES_DEVICE_COOKIE"`
+	UserAgent    string `toml:"-" env:"SBI_SECURITIES_USER_AGENT"`
 }
 
 func init() {
@@ -35,11 +36,11 @@ func (p *Plugin) Init() error {
 		return fmt.Errorf("failed to parse env: %w", err)
 	}
 
-	if p.Username == "" || p.Password == "" || p.DeviceCookie == "" {
+	if p.Username == "" || p.Password == "" || p.DeviceCookie == "" || p.UserAgent == "" {
 		return errors.New("missing required environment variables")
 	}
 
-	p.client, err = NewSBISecuritiesClient()
+	p.client, err = NewSBISecuritiesClient(p.UserAgent)
 	if err != nil {
 		return fmt.Errorf("failed to create client: %w", err)
 	}
