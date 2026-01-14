@@ -255,8 +255,8 @@ github.com/bufbuild/protocompile v0.14.1 h1:iA73zAf/fyljNjQKwYzUHD6AD4R8KMasmwa/
 github.com/bufbuild/protocompile v0.14.1/go.mod h1:ppVdAIhbr2H8asPk6k4pY7t9zB1OU5DoEw9xY/FUi1c=
 github.com/bwmarrin/snowflake v0.3.0 h1:xm67bEhkKh6ij1790JB83OujPR5CzNe8QuQqAgISZN0=
 github.com/bwmarrin/snowflake v0.3.0/go.mod h1:NdZxfVWX+oR6y2K0o6qAYv6gIOP9rjG0/E9WsDpxqwE=
-github.com/bybit-exchange/bybit.go.api v0.0.0-20250727214011-c9347d6804d6 h1:41FLQtKmxWEdyjdgrAm9lZFdS0Ax2XsDxkd/fuztsyQ=
-github.com/bybit-exchange/bybit.go.api v0.0.0-20250727214011-c9347d6804d6/go.mod h1:P22TFRynmYRrquJCPalKxZgIIIc9+PkC4kQPeejitsI=
+github.com/bybit-exchange/bybit.go.api v0.0.0-20260114092543-5173f1ad06c9 h1:wVNLRk1Upgw3O7FosRkfEoTzD/mjRcAh3CfDTZaFer4=
+github.com/bybit-exchange/bybit.go.api v0.0.0-20260114092543-5173f1ad06c9/go.mod h1:P22TFRynmYRrquJCPalKxZgIIIc9+PkC4kQPeejitsI=
 github.com/caarlos0/env/v11 v11.3.1 h1:cArPWC15hWmEt+gWk7YBi7lEXTXCvpaSdCiZE2X5mCA=
 github.com/caarlos0/env/v11 v11.3.1/go.mod h1:qupehSf/Y0TUTsxKywqRt/vJjN5nz6vauiYEUUr8P4U=
 github.com/caio/go-tdigest v3.1.0+incompatible h1:uoVMJ3Q5lXmVLCCqaMGHLBWnbGoN6Lpu7OAUPR60cds=
