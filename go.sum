@@ -677,8 +677,8 @@ github.com/linkedin/goavro/v2 v2.15.0 h1:pDj1UrjUOO62iXhgBiE7jQkpNIc5/tA5eZsgolM
 github.com/linkedin/goavro/v2 v2.15.0/go.mod h1:KXx+erlq+RPlGSPmLF7xGo6SAbh8sCQ53x064+ioxhk=
 github.com/lufia/plan9stats v0.0.0-20260330125221-c963978e514e h1:Q6MvJtQK/iRcRtzAscm/zF23XxJlbECiGPyRicsX+Ak=
 github.com/lufia/plan9stats v0.0.0-20260330125221-c963978e514e/go.mod h1:autxFIvghDt3jPTLoqZ9OZ7s9qTGNAWmYCjVFWPX/zg=
-github.com/mackerelio/mackerel-client-go v0.40.0 h1:PYjQg5WSzDqZUlasOQuMaUfS0JcNpw526tC0TauGvA0=
-github.com/mackerelio/mackerel-client-go v0.40.0/go.mod h1:hIMlFC/wuvBBQEjh0plBLUUTT/bcjmiwoPMxTucVFYk=
+github.com/mackerelio/mackerel-client-go v0.43.0 h1:LwE2EsfY5uGezDIBnmqyhwGTtiyBtwe9LieM/OAc610=
+github.com/mackerelio/mackerel-client-go v0.43.0/go.mod h1:idAyt+GkVknFIupw1Y3vW1v5fJuqz2eiQrWU/oHOrEM=
 github.com/magiconair/properties v1.8.10 h1:s31yESBquKXCV9a/ScB3ESkOjUYYv+X0rg8SYxI99mE=
 github.com/magiconair/properties v1.8.10/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=
 github.com/mailru/easyjson v0.9.2 h1:dX8U45hQsZpxd80nLvDGihsQ/OxlvTkVUXH2r/8cb2M=
