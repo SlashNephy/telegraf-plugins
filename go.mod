@@ -3,7 +3,7 @@ module github.com/SlashNephy/telegraf-plugins
 go 1.26.0
 
 require (
-	github.com/PuerkitoBio/goquery v1.11.0
+	github.com/PuerkitoBio/goquery v1.12.0
 	github.com/bybit-exchange/bybit.go.api v1.1.1
 	github.com/caarlos0/env/v11 v11.4.1
 	github.com/goccy/go-json v0.10.6
