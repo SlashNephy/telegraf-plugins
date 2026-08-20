@@ -1,0 +1,12 @@
+[tools]
+golangci-lint = "2.12.2" # go より先に配置しないと go/bin/ のバイナリが優先されてしまう
+go = "1.26.6"
+
+[tasks.build]
+run = "go build ./..."
+
+[tasks.test]
+run = "go test ./..."
+
+[tasks.lint]
+run = "golangci-lint run --fix"

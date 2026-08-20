@@ -12,25 +12,42 @@ on:
 
   workflow_dispatch:
 
-jobs:
-  build:
-    uses: SlashNephy/.github/.github/workflows/go-run.yml@2b64691f87d64d627f89946fb6f21169ddffc8b0 # master
-    permissions:
-      contents: 'read'
-    with:
-      task: ''
-      command: 'make build'
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: true
 
+permissions: {}
+
+jobs:
   test:
-    uses: SlashNephy/.github/.github/workflows/go-run.yml@2b64691f87d64d627f89946fb6f21169ddffc8b0 # master
+    runs-on: 'ubuntu-latest'
     permissions:
       contents: 'read'
-    with:
-      task: ''
-      command: 'make test'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: jdx/mise-action@7e36c90d9ab29c415a2384db3006f3ec8a8cc654 # v4.2.4
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: '${{ runner.os }}-go-${{ hashFiles(''go.sum'') }}'
+          restore-keys: '${{ runner.os }}-go-'
+      - run: 'mise run test'
 
   lint:
-    uses: SlashNephy/.github/.github/workflows/go-lint.yml@2b64691f87d64d627f89946fb6f21169ddffc8b0 # master
+    runs-on: 'ubuntu-latest'
     permissions:
       contents: 'read'
-      pull-requests: 'write'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: jdx/mise-action@7e36c90d9ab29c415a2384db3006f3ec8a8cc654 # v4.2.4
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: '${{ runner.os }}-go-${{ hashFiles(''go.sum'') }}'
+          restore-keys: '${{ runner.os }}-go-'
+      - run: 'mise run lint'
+      - run: 'git diff --exit-code'
