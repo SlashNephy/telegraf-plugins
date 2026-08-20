@@ -4,6 +4,7 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
+	"runtime/debug"
 
 	"github.com/caarlos0/env/v11"
 	"github.com/influxdata/telegraf"
@@ -52,7 +53,14 @@ func (p *Plugin) Gather(accumulator telegraf.Accumulator) error {
 		p.gatherTunersMetrics,
 	}
 	for _, f := range getherFuncs {
-		eg.Go(func() error {
+		eg.Go(func() (err error) {
+			// 未知のレスポンス形状で panic しても execd プロセス全体を落とさない
+			defer func() {
+				if r := recover(); r != nil {
+					err = fmt.Errorf("panic while gathering metrics: %v\n%s", r, debug.Stack())
+				}
+			}()
+
 			return f(ctx, accumulator)
 		})
 	}
@@ -69,35 +77,77 @@ func (p *Plugin) gatherStatusMetrics(ctx context.Context, accumulator telegraf.A
 		return fmt.Errorf("failed to get status: %w", err)
 	}
 
-	accumulator.AddFields(measurement, map[string]any{
-		"memory_rss":                 status.Process.MemoryUsage.RSS,
-		"memory_heap_total":          status.Process.MemoryUsage.HeapTotal,
-		"memory_heap_used":           status.Process.MemoryUsage.HeapUsed,
-		"memory_external":            status.Process.MemoryUsage.External,
-		"memory_array_buffers":       status.Process.MemoryUsage.ArrayBuffers,
-		"epg_stored_events":          status.EPG.StoredEvents,
-		"rpc_count":                  status.RPCCount,
-		"stream_total":               status.StreamCount.TunerDevice + status.StreamCount.TSFilter + status.StreamCount.Decoder,
-		"stream_tuner_device":        status.StreamCount.TunerDevice,
-		"stream_ts_filter":           status.StreamCount.TSFilter,
-		"stream_decoder":             status.StreamCount.Decoder,
-		"error_total":                status.ErrorCount.UncaughtException + status.ErrorCount.UnhandledRejection + status.ErrorCount.BufferOverflow + status.ErrorCount.TunerDeviceRespawn + status.ErrorCount.DecoderRespawn,
-		"error_uncaught_exception":   status.ErrorCount.UncaughtException,
-		"error_unhandled_rejection":  status.ErrorCount.UnhandledRejection,
-		"error_buffer_overflow":      status.ErrorCount.BufferOverflow,
-		"error_tuner_device_respawn": status.ErrorCount.TunerDeviceRespawn,
-		"error_decoder_respawn":      status.ErrorCount.DecoderRespawn,
-		"timer_accuracy":             status.TimerAccuracy.Last,
-		"timer_accuracy_m1_avg":      status.TimerAccuracy.M1.Avg,
-		"timer_accuracy_m1_min":      status.TimerAccuracy.M1.Min,
-		"timer_accuracy_m1_max":      status.TimerAccuracy.M1.Max,
-		"timer_accuracy_m5_avg":      status.TimerAccuracy.M5.Avg,
-		"timer_accuracy_m5_min":      status.TimerAccuracy.M5.Min,
-		"timer_accuracy_m5_max":      status.TimerAccuracy.M5.Max,
-		"timer_accuracy_m15_avg":     status.TimerAccuracy.M15.Avg,
-		"timer_accuracy_m15_min":     status.TimerAccuracy.M15.Min,
-		"timer_accuracy_m15_max":     status.TimerAccuracy.M15.Max,
-	}, nil)
+	// Mahiron などの Mirakurun 互換実装は Node.js 実装固有の指標を返さない
+	// 欠けている指標を 0 として記録すると実際に 0 だった場合と区別できないため、フィールドごと出力しない
+	fields := make(map[string]any)
+
+	if status.Process != nil && status.Process.MemoryUsage != nil {
+		memory := status.Process.MemoryUsage
+		fields["memory_rss"] = memory.RSS
+		fields["memory_heap_total"] = memory.HeapTotal
+		fields["memory_heap_used"] = memory.HeapUsed
+
+		if memory.External != nil {
+			fields["memory_external"] = *memory.External
+		}
+		if memory.ArrayBuffers != nil {
+			fields["memory_array_buffers"] = *memory.ArrayBuffers
+		}
+	}
+
+	if status.EPG != nil {
+		fields["epg_stored_events"] = status.EPG.StoredEvents
+	}
+
+	if status.RPCCount != nil {
+		fields["rpc_count"] = *status.RPCCount
+	}
+
+	if status.StreamCount != nil {
+		stream := status.StreamCount
+		fields["stream_total"] = stream.TunerDevice + stream.TSFilter + stream.Decoder
+		fields["stream_tuner_device"] = stream.TunerDevice
+		fields["stream_ts_filter"] = stream.TSFilter
+		fields["stream_decoder"] = stream.Decoder
+	}
+
+	if status.ErrorCount != nil {
+		errorCount := status.ErrorCount
+		fields["error_total"] = errorCount.UncaughtException + errorCount.UnhandledRejection + errorCount.BufferOverflow + errorCount.TunerDeviceRespawn + errorCount.DecoderRespawn
+		fields["error_uncaught_exception"] = errorCount.UncaughtException
+		fields["error_unhandled_rejection"] = errorCount.UnhandledRejection
+		fields["error_buffer_overflow"] = errorCount.BufferOverflow
+		fields["error_tuner_device_respawn"] = errorCount.TunerDeviceRespawn
+		fields["error_decoder_respawn"] = errorCount.DecoderRespawn
+	}
+
+	if status.TimerAccuracy != nil {
+		fields["timer_accuracy"] = status.TimerAccuracy.Last
+
+		stats := []struct {
+			name string
+			stat *MirakurunStatusTimerAccuracyStat
+		}{
+			{"m1", status.TimerAccuracy.M1},
+			{"m5", status.TimerAccuracy.M5},
+			{"m15", status.TimerAccuracy.M15},
+		}
+		for _, entry := range stats {
+			if entry.stat == nil {
+				continue
+			}
+
+			fields["timer_accuracy_"+entry.name+"_avg"] = entry.stat.Avg
+			fields["timer_accuracy_"+entry.name+"_min"] = entry.stat.Min
+			fields["timer_accuracy_"+entry.name+"_max"] = entry.stat.Max
+		}
+	}
+
+	if len(fields) == 0 {
+		return nil
+	}
+
+	accumulator.AddFields(measurement, fields, nil)
 	return nil
 }
 

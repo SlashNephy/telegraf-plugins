@@ -19,49 +19,56 @@ func NewMirakurunClient(baseURL string) *MirakurunClient {
 }
 
 type MirakurunStatus struct {
-	Process *struct {
-		MemoryUsage *struct {
-			RSS          int `json:"rss"`
-			HeapTotal    int `json:"heapTotal"`
-			HeapUsed     int `json:"heapUsed"`
-			External     int `json:"external"`
-			ArrayBuffers int `json:"arrayBuffers"`
-		} `json:"memoryUsage"`
-	} `json:"process"`
-	EPG *struct {
-		StoredEvents int `json:"storedEvents"`
-	} `json:"epg"`
-	RPCCount    int `json:"rpcCount"`
-	StreamCount *struct {
-		TunerDevice int `json:"tunerDevice"`
-		TSFilter    int `json:"tsFilter"`
-		Decoder     int `json:"decoder"`
-	} `json:"streamCount"`
-	ErrorCount *struct {
-		UncaughtException  int `json:"uncaughtException"`
-		UnhandledRejection int `json:"unhandledRejection"`
-		BufferOverflow     int `json:"bufferOverflow"`
-		TunerDeviceRespawn int `json:"tunerDeviceRespawn"`
-		DecoderRespawn     int `json:"decoderRespawn"`
-	} `json:"errorCount"`
-	TimerAccuracy *struct {
-		Last float64 `json:"last"`
-		M1   *struct {
-			Avg float64 `json:"avg"`
-			Min float64 `json:"min"`
-			Max float64 `json:"max"`
-		} `json:"m1"`
-		M5 *struct {
-			Avg float64 `json:"avg"`
-			Min float64 `json:"min"`
-			Max float64 `json:"max"`
-		} `json:"m5"`
-		M15 *struct {
-			Avg float64 `json:"avg"`
-			Min float64 `json:"min"`
-			Max float64 `json:"max"`
-		} `json:"m15"`
-	} `json:"timerAccuracy"`
+	Process       *MirakurunStatusProcess       `json:"process"`
+	EPG           *MirakurunStatusEPG           `json:"epg"`
+	RPCCount      *int                          `json:"rpcCount"`
+	StreamCount   *MirakurunStatusStreamCount   `json:"streamCount"`
+	ErrorCount    *MirakurunStatusErrorCount    `json:"errorCount"`
+	TimerAccuracy *MirakurunStatusTimerAccuracy `json:"timerAccuracy"`
+}
+
+type MirakurunStatusProcess struct {
+	MemoryUsage *MirakurunStatusMemoryUsage `json:"memoryUsage"`
+}
+
+type MirakurunStatusMemoryUsage struct {
+	RSS       int `json:"rss"`
+	HeapTotal int `json:"heapTotal"`
+	HeapUsed  int `json:"heapUsed"`
+	// external と arrayBuffers は Node.js 実装の Mirakurun 固有であり、Mahiron などの互換実装は返さない
+	External     *int `json:"external"`
+	ArrayBuffers *int `json:"arrayBuffers"`
+}
+
+type MirakurunStatusEPG struct {
+	StoredEvents int `json:"storedEvents"`
+}
+
+type MirakurunStatusStreamCount struct {
+	TunerDevice int `json:"tunerDevice"`
+	TSFilter    int `json:"tsFilter"`
+	Decoder     int `json:"decoder"`
+}
+
+type MirakurunStatusErrorCount struct {
+	UncaughtException  int `json:"uncaughtException"`
+	UnhandledRejection int `json:"unhandledRejection"`
+	BufferOverflow     int `json:"bufferOverflow"`
+	TunerDeviceRespawn int `json:"tunerDeviceRespawn"`
+	DecoderRespawn     int `json:"decoderRespawn"`
+}
+
+type MirakurunStatusTimerAccuracy struct {
+	Last float64                           `json:"last"`
+	M1   *MirakurunStatusTimerAccuracyStat `json:"m1"`
+	M5   *MirakurunStatusTimerAccuracyStat `json:"m5"`
+	M15  *MirakurunStatusTimerAccuracyStat `json:"m15"`
+}
+
+type MirakurunStatusTimerAccuracyStat struct {
+	Avg float64 `json:"avg"`
+	Min float64 `json:"min"`
+	Max float64 `json:"max"`
 }
 
 func (c *MirakurunClient) GetStatus(ctx context.Context) (*MirakurunStatus, error) {
