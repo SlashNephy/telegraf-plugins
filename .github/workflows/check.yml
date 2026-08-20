@@ -51,3 +51,4 @@ jobs:
           restore-keys: '${{ runner.os }}-go-'
       - run: 'mise run lint'
       - run: 'git diff --exit-code'
+      - run: 'mise run release-check'
