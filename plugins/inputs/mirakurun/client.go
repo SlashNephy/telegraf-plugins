@@ -128,7 +128,7 @@ func (c *MirakurunClient) get(ctx context.Context, path string, result any) erro
 		return fmt.Errorf("unexpected status code: %d", response.StatusCode)
 	}
 
-	defer response.Body.Close()
+	defer func() { _ = response.Body.Close() }()
 
 	body, err := io.ReadAll(response.Body)
 	if err != nil {

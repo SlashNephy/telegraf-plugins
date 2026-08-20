@@ -84,7 +84,7 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password, dev
 		if err != nil {
 			return err
 		}
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 
 		if response.StatusCode != http.StatusOK {
 			return fmt.Errorf("unexpected response: %s", response.Status)
@@ -123,7 +123,7 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password, dev
 		if err != nil {
 			return err
 		}
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 
 		if response.StatusCode != http.StatusOK {
 			return fmt.Errorf("unexpected response: %s", response.Status)
@@ -152,7 +152,7 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password, dev
 		if err != nil {
 			return err
 		}
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 
 		if response.StatusCode != http.StatusOK {
 			return fmt.Errorf("unexpected response: %s", response.Status)
@@ -185,7 +185,7 @@ func (c *SBISecuritiesClient) Login(ctx context.Context, username, password, dev
 		if err != nil {
 			return err
 		}
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 
 		if response.StatusCode != http.StatusOK {
 			return fmt.Errorf("unexpected response: %s", response.Status)
@@ -368,7 +368,7 @@ func (c *SBISecuritiesClient) GetFundAssets(ctx context.Context) (*FundAssets, e
 	if err != nil {
 		return nil, err
 	}
-	defer response.Body.Close()
+	defer func() { _ = response.Body.Close() }()
 
 	if response.StatusCode != http.StatusOK {
 		if response.StatusCode == http.StatusUnauthorized {

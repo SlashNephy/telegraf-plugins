@@ -123,7 +123,7 @@ func (c *RakutenSecuritiesClient) Login(ctx context.Context, username, password 
 			return fmt.Errorf("unexpected status: %s", response.Status)
 		}
 
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 		responseBody, err := io.ReadAll(response.Body)
 		if err != nil {
 			return err
@@ -383,7 +383,7 @@ func (c *RakutenSecuritiesClient) GetMetrics(ctx context.Context) (*Metrics, err
 			return nil, fmt.Errorf("unexpected status: %s", response.Status)
 		}
 
-		defer response.Body.Close()
+		defer func() { _ = response.Body.Close() }()
 		r := transform.NewReader(response.Body, japanese.ShiftJIS.NewDecoder()) // Shift-JIS -> UTF-8
 		return c.parseCSV(r)
 	}
