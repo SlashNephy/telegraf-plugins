@@ -13,6 +13,7 @@ require (
 	github.com/mackerelio/mackerel-client-go v0.46.0
 	github.com/nasa9084/go-switchbot/v5 v5.3.0
 	github.com/samber/lo v1.53.0
+	github.com/stretchr/testify v1.12.1
 	golang.org/x/sync v0.22.0
 	golang.org/x/text v0.41.0
 )
@@ -68,4 +69,5 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20260720211330-0afa2a65878a // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260724162435-b2f20204f0df // indirect
 	google.golang.org/protobuf v1.36.12-0.20260120151049-f2248ac996af // indirect
+	gotest.tools/v3 v3.5.2 // indirect
 )
