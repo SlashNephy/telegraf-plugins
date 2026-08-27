@@ -10,7 +10,7 @@ require (
 	github.com/influxdata/telegraf v1.39.3
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
-	github.com/mackerelio/mackerel-client-go v0.46.0
+	github.com/mackerelio/mackerel-client-go v0.47.0
 	github.com/nasa9084/go-switchbot/v5 v5.3.0
 	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.12.1
