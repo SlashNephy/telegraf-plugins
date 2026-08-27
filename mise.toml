@@ -1,5 +1,5 @@
 [tools]
-golangci-lint = "2.13.0" # go より先に配置しないと go/bin/ のバイナリが優先されてしまう
+golangci-lint = "2.13.1" # go より先に配置しないと go/bin/ のバイナリが優先されてしまう
 go = "1.27.0"
 goreleaser = "2.17.1"
 
