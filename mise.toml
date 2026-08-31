@@ -1,7 +1,7 @@
 [tools]
 golangci-lint = "2.13.1" # go より先に配置しないと go/bin/ のバイナリが優先されてしまう
 go = "1.27.0"
-goreleaser = "2.17.1"
+goreleaser = "2.18.0"
 
 [tasks.build]
 run = "go build ./..."
