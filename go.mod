@@ -14,7 +14,7 @@ require (
 	github.com/nasa9084/go-switchbot/v5 v5.3.0
 	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.12.1
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 	golang.org/x/text v0.42.0
 )
 
