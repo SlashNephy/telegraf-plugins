@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	github.com/PuerkitoBio/goquery v1.13.0
 	github.com/bybit-exchange/bybit.go.api v1.1.1
-	github.com/caarlos0/env/v11 v11.4.1
+	github.com/caarlos0/env/v11 v11.4.2
 	github.com/goccy/go-json v0.12.0
 	github.com/influxdata/telegraf v1.40.3
 	github.com/jessevdk/go-flags v1.6.1
