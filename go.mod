@@ -4,7 +4,7 @@ go 1.27.0
 
 require (
 	github.com/PuerkitoBio/goquery v1.13.0
-	github.com/bybit-exchange/bybit.go.api v1.1.1
+	github.com/bybit-exchange/bybit.go.api v1.1.2
 	github.com/caarlos0/env/v11 v11.4.2
 	github.com/goccy/go-json v0.12.0
 	github.com/influxdata/telegraf v1.40.3
@@ -42,15 +42,12 @@ require (
 	github.com/gosnmp/gosnmp v1.47.0 // indirect
 	github.com/influxdata/toml v0.0.0-20251106153700-c381e153d076 // indirect
 	github.com/jedib0t/go-pretty/v6 v6.8.3 // indirect
-	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/compress v1.20.3 // indirect
 	github.com/klauspost/pgzip v1.3.0 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/mattn/go-runewidth v0.0.30 // indirect
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.10.2 // indirect
